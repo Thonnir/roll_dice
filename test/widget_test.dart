@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:roll_dice/main.dart';
 
-String shownFace(WidgetTester tester) {
+String shownAssetName(WidgetTester tester) {
   final image = tester.widget<Image>(find.byType(Image));
   return (image.image as AssetImage).assetName;
 }
@@ -17,7 +17,7 @@ void main() {
     for (var roll = 0; roll < 200; roll++) {
       await tester.tap(find.text('Hoď kockou'));
       await tester.pump();
-      seen.add(shownFace(tester));
+      seen.add(shownAssetName(tester));
     }
 
     expect(seen, {
